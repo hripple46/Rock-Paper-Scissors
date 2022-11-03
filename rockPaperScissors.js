@@ -1,22 +1,40 @@
 console.log("Hi");
 const computerMove = ["Rock", "Paper", "Scissors"];
 
-function getComputerChoice() {
+//let computerChoice = getComputerChoice();
+/*function getComputerChoice() {
   return computerMove[Math.floor(Math.random() * computerMove.length)];
-}
+}*/
 
 let player = 0;
 let computer = 0;
 
-for (let i = 0; i < 5; i++) {
-  let userPrompt = prompt("Rock, Paper, or Scissors?");
-  let computerChoice = getComputerChoice();
-  console.log(player);
-  console.log(computer);
-  playRound(userPrompt, computerChoice);
-}
-alert("Player Score: " + `${player}\n` + "Computer Score: " + `${computer}`);
+//adding event listener for each button
+let rockButton = document.querySelector("#rockButton");
+rockButton.addEventListener("click", () => {
+  function getComputerChoice() {
+    return computerMove[Math.floor(Math.random() * computerMove.length)];
+  }
+  playRound("Rock", getComputerChoice());
+});
 
+let paperButton = document.querySelector("#paperButton");
+paperButton.addEventListener("click", () => {
+  function getComputerChoice() {
+    return computerMove[Math.floor(Math.random() * computerMove.length)];
+  }
+  playRound("Paper", getComputerChoice());
+});
+
+let scissorsButton = document.querySelector("#scissorsButton");
+scissorsButton.addEventListener("click", () => {
+  function getComputerChoice() {
+    return computerMove[Math.floor(Math.random() * computerMove.length)];
+  }
+  playRound("Scissors", getComputerChoice());
+});
+
+//calling playround function with user input
 function playRound(playerChoice, computerChoice) {
   if (playerChoice.toUpperCase() == "ROCK") {
     if (computerChoice == "Paper") {
